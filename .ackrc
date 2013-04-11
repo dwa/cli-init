@@ -1,0 +1,15 @@
+## -*- conf -*-
+## set up a couple of file types:
+--type-set=maxima=.max,.mac
+--type-set=pdf=.pdf
+--type-add=lisp=.cl,.asd
+--type-add=elisp=.el
+--type-set=doc=.doc
+--type-set=gnuplot=.gp
+--type-set=tgz=.gz,.tgz
+--type-set=dat=.dat
+--type-set=org=.org
+--type-set=params=.params
+--type-set=awk=.awk
+--type-set=R=.R,.r,.Rd
+--type-set=Rhistory=.Rhistory

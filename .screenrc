@@ -1,0 +1,84 @@
+## -*- conf -*-
+
+startup_message off
+
+vbell off
+defscrollback 40000
+
+defutf8 on
+
+defflow off
+
+#deflogin off
+
+nethack off
+
+#no, we don't want login shells:
+shell $SHELL
+
+#decided I like this after all:
+hardstatus on
+#hardstatus alwayslastline
+#hardstatus off
+#hardstatus ignore
+
+termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+hardstatus string "[%n %t] %h"
+
+caption always "%{= +d d}%-w%{= Kw}%n %t%{-}%+w %-= @%H - %c"
+
+##
+## some useful bindings, i.e., 'C-a' + :
+bind E screen -t emacs emacs -nw -Q
+bind W screen -t wl emacs -nw -f wl
+bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+#bind N java -cp ${CLASSPATH} -server com.martiansoftware.nailgun.NGServer
+
+bind ^k kill
+bind k kill
+
+##
+## default windows
+
+#screen -t offlineimap 5 $HOME/bin/my-offlineimap
+#screen -t mail 5 bash $HOME/bin/my-getmail
+
+setenv HISTFILE_OLD $HISTFILE
+
+screen -t su 0 su
+
+# chdir $HOME/sw/cvs
+# setenv HISTFILE $HOME/.bash_history.cvs
+# screen -t cvs 1
+
+#chdir $HOME
+#setenv HISTFILE $HOME/.histfile.nailgun
+#screen -t ng 2 java -cp $CLASSPATH -server com.martiansoftware.nailgun.NGServer
+
+# chdir $HOME/repos/personal-misc/sockmonkey--cfgs
+# setenv HISTFILE $HOME/.bash_history.sockmonkey
+# screen -t sockmonkey 3
+
+# chdir $HOME/Books
+# setenv HISTFILE $HOME/.histfile.books
+# screen -t books 4
+
+# chdir $HOME/repos
+# setenv HISTFILE $HOME/.histfile.repos
+# screen -t repos 5
+
+chdir $HOME/sw
+setenv HISTFILE $HOME/.histfile.sw
+screen -t sw 1
+
+chdir $HOME/
+setenv HISTFILE $HOME/.histfile.home
+screen -t dwa 2
+
+setenv HISTFILE $HISTFILE_OLD
+
+
+##
+## new windows should start from the homedir
+chdir $HOME
