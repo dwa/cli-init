@@ -16,12 +16,16 @@ fi
 
 
 # Put your fun stuff here.
-alias temperature='cat /proc/acpi/thermal_zone/THRM/temperature'
-alias efetch_progress='tail -f /var/log/emerge-fetch.log'
-
-alias randr_dual_right='xrandr --output DFP1 --auto --right-of LCD'
 
 [[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
 
-export PATH=$HOME/bin:$PATH
-export INFOPATH=~/info:${INFOPATH}
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+## the end;

@@ -44,7 +44,11 @@ export VISUAL="/usr/bin/emacsclient"
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/devel
-source /usr/bin/virtualenvwrapper.sh
+
+VIRTUALENV_WRAPPER=/usr/bin/virtualenvwrapper.sh
+if [[ -e $VIRTUALENV_WRAPPER ]]; then
+    source $VIRTUALENV_WRAPPER
+fi
 
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -62,7 +66,9 @@ CP_CLJ="/usr/share/clojure-${CLJ_VERSION}/lib/clojure.jar:/usr/share/clojure-con
 CP_NG="/usr/share/nailgun/lib/nailgun.jar"
 CLASSPATH="${CP_NG}:${CP_CLJ}:."
 
-export CLASSPATH="$(find ~/.clojure -mindepth 1 -maxdepth 1 -type d -printf '%p:' -or -iname '*.jar' -printf '%p:')${CLASSPATH}"
+if [[ -d ~/.clojure ]]; then
+    export CLASSPATH="$(find ~/.clojure -mindepth 1 -maxdepth 1 -type d -printf '%p:' -or -iname '*.jar' -printf '%p:')${CLASSPATH}"    
+fi
 
 #find ~/.m2/repository -follow -mindepth 1 -iname '*.jar' -print0 2> /dev/null | tr \\0 \:
 

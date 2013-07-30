@@ -8,6 +8,3 @@
         user = david.wallin@gmail.com
         port = 993
         sslverify = false
-
-[url "https://"]
-        insteadOf = git://
