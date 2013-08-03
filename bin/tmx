@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#set -x
+
+function init_session() {
+    tmux new-session -d -s main
+    tmux new-window -t main:1 -n ipynb 'ipython notebook --no-browser --ip=*'
+    tmux new-window -t main:2 -n emacs 'emacsclient --alternate-editor="" -t'
+    tmux select-window -t main:1
+}
+
+case $1 in
+
+    init-session)
+        init_session
+        ;;
+    *)
+        echo "hi"
+        ;;
+esac
