@@ -46,7 +46,7 @@ bind k kill
 
 setenv HISTFILE_OLD $HISTFILE
 
-screen -t su 0 su
+screen -t aptitude 0 sudo aptitude
 
 # chdir $HOME/sw/cvs
 # setenv HISTFILE $HOME/.bash_history.cvs
@@ -68,16 +68,17 @@ screen -t su 0 su
 # setenv HISTFILE $HOME/.histfile.repos
 # screen -t repos 5
 
-chdir $HOME/sw
-setenv HISTFILE $HOME/.histfile.sw
-screen -t sw 1
-
 chdir $HOME/
-setenv HISTFILE $HOME/.histfile.home
-screen -t dwa 2
+setenv HISTFILE $HOME/.histfile.sw
+screen -t emacs 1 emacs -nw
+
+chdir $HOME/seamless
+setenv HISTFILE $HOME/.histfile.seamless
+screen -t seamless 2
 
 setenv HISTFILE $HISTFILE_OLD
 
+screen -t ipynb 3 ipython notebook --no-browser #--pylab=inline
 
 ##
 ## new windows should start from the homedir
