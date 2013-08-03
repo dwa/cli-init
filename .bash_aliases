@@ -3,11 +3,17 @@ alias temperature='cat /proc/acpi/thermal_zone/THRM/temperature'
 
 ## gentoo
 alias efetch_progress='tail -f /var/log/emerge-fetch.log'
+alias bugz='bugz --skip-auth'
 
 alias randr_dual_right='xrandr --output DFP1 --auto --right-of LCD'
 
 alias proxyhome='curl --data "parentProxy=" "localhost:8123/polipo/config?"'
 alias proxywork='curl --data "parentProxy=WORKPROXY:8080" "localhost:8123/polipo/config?"'
+
+
+export ALTERNATE_EDITOR=""
+export EDITOR="/usr/bin/emacsclient"
+export VISUAL="/usr/bin/emacsclient"
 
 export PATH=${HOME}/bin:${PATH}
 export INFOPATH=${HOME}/info:${INFOPATH}

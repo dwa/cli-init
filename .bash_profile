@@ -1,7 +1,8 @@
 # /etc/skel/.bash_profile
 
 if [[ ! $GNOME_KEYRING_PID ]]; then
-    export $(gnome-keyring-daemon --daemonize --start)
+#    export $(gnome-keyring-daemon --daemonize --start)
+    export $(gnome-keyring-daemon --start)
 fi
 
 
