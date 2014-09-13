@@ -4,7 +4,7 @@
 
 function init_session() {
     tmux new-session -d -s main -n aptitude 'sudo aptitude'
-    tmux new-window -t main:2 -n ipynb 'ipython notebook --no-browser --ip=*'
+    tmux new-window -t main:2 -n ipynb 'ipython notebook --no-browser --ip=* --port=88888'
     tmux new-window -t main:3 -n emacs 'emacsclient --alternate-editor="" -t'
     tmux select-window -t main:1
 }

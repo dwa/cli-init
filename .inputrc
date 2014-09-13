@@ -1,4 +1,12 @@
+$include /etc/inputrc
+
+$if Python
+"\M-i": "    "
+"\M-u": "\d\d\d\d"
+$endif
+
 "\e[1;3C": forward-word
 "\e[1;3D": backward-word
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+"\e[27;5;47~": undo
