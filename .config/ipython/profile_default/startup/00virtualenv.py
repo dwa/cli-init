@@ -1,6 +1,7 @@
 
 ## this content is originally from
 ## http://igotgenes.blogspot.ie/2010/01/interactive-sandboxes-using-ipython.html
+from __future__ import print_function
 import site
 from os import environ
 from os.path import join
@@ -24,7 +25,7 @@ if 'VIRTUAL_ENV' in environ:
             sys.path.remove(item)
     sys.path[1:1] = new_sys_path
 
-    print 'VIRTUAL_ENV ->', virtual_env
+    print ('VIRTUAL_ENV ->', virtual_env)
     del virtual_env
 
 del site, environ, join, sys
